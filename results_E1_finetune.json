@@ -1,0 +1,59 @@
+{
+  "experiment": "E1",
+  "mode": "finetune",
+  "macro_auroc": 0.663266639938153,
+  "macro_auprc": 0.21691521130611957,
+  "auroc_ci": [
+    0.6231702460772042,
+    0.7010265563969836
+  ],
+  "auprc_ci": [
+    0.18897052607952194,
+    0.2667092961315033
+  ],
+  "supported_classes": [
+    "No Finding",
+    "Enlarged Cardiomediastinum",
+    "Cardiomegaly",
+    "Lung Opacity",
+    "Lung Lesion",
+    "Consolidation",
+    "Pneumonia",
+    "Pneumothorax",
+    "Pleural Other",
+    "Fracture",
+    "Support Devices"
+  ],
+  "per_class_auroc": {
+    "No Finding": 0.6042859699355763,
+    "Enlarged Cardiomediastinum": 0.7113970588235294,
+    "Cardiomegaly": 0.7424714731032116,
+    "Lung Opacity": 0.5259115184281664,
+    "Lung Lesion": 0.7881899871630293,
+    "Edema": 0.6985294117647058,
+    "Consolidation": 0.651764705882353,
+    "Pneumonia": 0.6731327835464591,
+    "Atelectasis": 0.6771978021978022,
+    "Pneumothorax": 0.6428816466552315,
+    "Pleural Effusion": 0.8017399267399268,
+    "Pleural Other": 0.5977164099840679,
+    "Fracture": 0.6245502645502645,
+    "Support Devices": 0.7336312212477936
+  },
+  "per_class_auprc": {
+    "No Finding": 0.1461936350703945,
+    "Enlarged Cardiomediastinum": 0.30148123008216204,
+    "Cardiomegaly": 0.36173586249733475,
+    "Lung Opacity": 0.053286873669369524,
+    "Lung Lesion": 0.231152330255368,
+    "Edema": 0.12271318828236592,
+    "Consolidation": 0.13208998406177916,
+    "Pneumonia": 0.2910012865965768,
+    "Atelectasis": 0.0760929286498376,
+    "Pneumothorax": 0.13292468789625903,
+    "Pleural Effusion": 0.05368412094248089,
+    "Pleural Other": 0.05826140442180819,
+    "Fracture": 0.08560184362605726,
+    "Support Devices": 0.5923381861902062
+  }
+}

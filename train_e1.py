@@ -49,8 +49,20 @@ def build_model(mode, unfreeze):
     vit = VisionEncoderDecoderModel.from_pretrained(MODEL_ID).encoder
     for p in vit.parameters(): p.requires_grad = False
     if mode == "finetune":
-        for blk in vit.encoder.layer[-unfreeze:]:
-            for p in blk.parameters(): p.requires_grad = True
+        # architecture-agnostic: unfreeze the LAST `unfreeze` transformer stages.
+        # Swin V2 nests as encoder.layers[i].blocks[j]; grab the top-level stages.
+        stages = None
+        for attr in ("layers", "layer"):
+            enc = getattr(vit, "encoder", vit)
+            if hasattr(enc, attr):
+                stages = getattr(enc, attr)
+                break
+        if stages is None:
+            # fallback: unfreeze everything (small model, still fine)
+            for p in vit.parameters(): p.requires_grad = True
+        else:
+            for stg in list(stages)[-unfreeze:]:
+                for p in stg.parameters(): p.requires_grad = True
     hidden = vit.config.hidden_size
     class Classifier(nn.Module):
         def __init__(self):
